@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Thinking — Summary &amp; Quiz</title>
+<style>
+  :root{
+    --bg:#f7f6f3; --surface:#ffffff; --ink:#1c1b19; --muted:#5f5b54;
+    --line:#e2ded6; --accent:#8a4b2a; --accent-soft:#f3e7df;
+    --ok:#1f6f43; --ok-soft:#e3f2e9; --no:#a32b2b; --no-soft:#fbe7e7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17161a; --surface:#211f24; --ink:#efece7; --muted:#a49f98;
+      --line:#35323a; --accent:#e0996d; --accent-soft:#332a25;
+      --ok:#7ed3a3; --ok-soft:#1e2f26; --no:#f0918e; --no-soft:#331f21;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding-block:48px; padding-left:20px; padding-right:20px;
+  }
+  .wrap{max-width:760px; margin:0 auto}
+  .eyebrow{
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:600; margin:0 0 10px;
+  }
+  h1{font-size:clamp(28px,5vw,40px); line-height:1.15; margin:0 0 14px; letter-spacing:-.02em}
+  .lede{font-size:17px; color:var(--muted); margin:0 0 8px}
+  .src{font-size:13px; color:var(--muted); margin:0 0 40px}
+  .src a{color:var(--accent)}
+  h2{font-size:20px; margin:44px 0 16px; letter-spacing:-.01em}
+  .card{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:12px; padding:20px 22px; margin-bottom:14px;
+  }
+  .card h3{margin:0 0 8px; font-size:15px; letter-spacing:.01em}
+  .card p{margin:0; color:var(--muted); font-size:14.5px}
+  .card p b{color:var(--ink); font-weight:600}
+  .shifts{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); margin-bottom:14px}
+  .shift{background:var(--accent-soft); border-radius:10px; padding:14px 16px; font-size:14px}
+  .shift span{display:block; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px}
+
+  .q{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:16px}
+  .qn{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  .qt{margin:6px 0 14px; font-weight:600; font-size:16.5px; line-height:1.45}
+  .opt{display:block; margin-bottom:8px}
+  .opt input{position:absolute; opacity:0; pointer-events:none}
+  .opt span{
+    display:block; border:1px solid var(--line); border-radius:9px;
+    padding:11px 14px; font-size:15px; cursor:pointer; transition:.12s;
+  }
+  .opt span:hover{border-color:var(--accent)}
+  .opt input:checked + span{border-color:var(--accent); background:var(--accent-soft)}
+  .opt input:focus-visible + span{outline:2px solid var(--accent); outline-offset:2px}
+  .q.done .opt span{cursor:default}
+  .q.done .opt span:hover{border-color:var(--line)}
+  .q.done .opt.correct span{border-color:var(--ok); background:var(--ok-soft)}
+  .q.done .opt.chosen-wrong span{border-color:var(--no); background:var(--no-soft)}
+  .fb{margin-top:12px; padding:12px 14px; border-radius:9px; font-size:14px; display:none}
+  .q.done .fb{display:block}
+  .fb.right{background:var(--ok-soft); color:var(--ok)}
+  .fb.wrong{background:var(--no-soft); color:var(--no)}
+  .fb b{display:block; margin-bottom:2px}
+
+  .bar{
+    position:sticky; bottom:16px; margin-top:28px; display:flex; gap:12px;
+    align-items:center; flex-wrap:wrap;
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:12px; padding:14px 18px;
+  }
+  .score{font-weight:600; font-size:15px; margin-right:auto}
+  .score em{font-style:normal; color:var(--muted); font-weight:400}
+  button{
+    font:inherit; font-weight:600; font-size:14px; cursor:pointer;
+    border-radius:9px; padding:9px 16px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--bg);
+  }
+  button.ghost{background:transparent; color:var(--accent)}
+  button:disabled{opacity:.45; cursor:not-allowed}
+  footer{margin-top:40px; font-size:13px; color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Institute of Digital Government</p>
+  <h1>Product Thinking</h1>
+  <p class="lede">Product thinking is a discipline of asking better questions before reaching for solutions — a set of habits for diagnosing problems, making decisions, and learning from what you build. Its three commitments: problems before solutions, outcomes over outputs, and Policy–Ops–Tech integration.</p>
+  <p class="src">Summarised from <a href="https://www.idg.gov.sg/product-thinking/">idg.gov.sg/product-thinking</a> and its seven linked guides.</p>
+
+  <div class="shifts">
+    <div class="shift"><span>Shift 1</span>Solutions → <b>Problems</b></div>
+    <div class="shift"><span>Shift 2</span>Outputs → <b>Outcomes</b></div>
+    <div class="shift"><span>Shift 3</span>Big bang → <b>Staged delivery</b></div>
+  </div>
+
+  <h2>The toolkit</h2>
+
+  <div class="card">
+    <h3>1 · Understand the problem</h3>
+    <p>Great digital products start with problems, not solutions. Most initiatives fail because they solved the wrong problem, not because they executed badly — teams skip diagnosis and arrive with the answer already chosen ("we need a CRM", "we need more AI"). <b>Grab</b> started with taxis, <b>Amazon</b> with books, <b>Netflix</b> with DVDs: nail one problem first, then scale.</p>
+  </div>
+
+  <div class="card">
+    <h3>2 · Five Whys</h3>
+    <p>A simple tool that moves you from <b>symptom to cause</b>. Ask "why" five times. Problems rarely have one root cause, so aim for causes that are both <b>within your control</b> and <b>linked to the outcome</b> you want.</p>
+  </div>
+
+  <div class="card">
+    <h3>3 · The 4Cs problem statement</h3>
+    <p><b>Clarity</b> (what exactly is the problem), <b>Consequence</b> (what it costs), <b>Cause</b> (the root reason), <b>Confirmation</b> (the evidence). A sharp, data-backed statement aligns the team on the right problem — for example, citizens repeatedly re-filling the same forms across government services.</p>
+  </div>
+
+  <div class="card">
+    <h3>4 · Metrics: SMART, leading/lagging, VCR</h3>
+    <p><b>SMART</b> — Specific, Measurable, Achievable, Relevant, Time-bound. <b>Leading indicators</b> give early signals so you can course-correct; <b>lagging indicators</b> measure the real outcome after the fact. <b>Value-Cost Ratio (VCR)</b> is the value generated for every dollar spent — the argument for continued investment.</p>
+  </div>
+
+  <div class="card">
+    <h3>5 · Assumptions and risks</h3>
+    <p>Ask: what could go wrong, and what is the <b>cheapest way to find out?</b> Three risks — <b>market</b> (do users want it), <b>technical</b> (can it be built), <b>team</b> (can we execute). De-risk in stages: <b>Proof of Concept → Proof of Value → Scale → Maturity</b>. A proof of concept does not need to be scalable, it just needs to be testable. Singapore's health appointment booking started as a FormSG form feeding an Excel sheet; its A/B test returned 0 bookings in control against 24 in treatment, with users sharing the link themselves.</p>
+  </div>
+
+  <div class="card">
+    <h3>6 · A good customer experience</h3>
+    <p>Not a nice-to-have — especially for <b>compulsory services</b>, where citizens cannot go elsewhere. Products that work remove a real, named frustration (ParkingSG, RedeemSG). The <b>11-Star Framework</b> recalibrates ambition, stretching past the adequate to find the sweet spot between adequate and impossible.</p>
+  </div>
+
+  <h2>Quiz — 8 questions</h2>
+  <form id="quiz"></form>
+
+  <div class="bar">
+    <div class="score" id="score"><em>Answer all 8 questions, then check.</em></div>
+    <button type="button" class="ghost" id="reset">Reset</button>
+    <button type="button" id="check" disabled>Check answers</button>
+  </div>
+
+  <footer>Study aid based on the IDG Product Thinking pathway.</footer>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "According to the pathway, why do most digital initiatives fail?",
+    o: ["The technology chosen was immature",
+        "They solved the wrong problem rather than executing badly",
+        "Budgets were approved too late in the cycle",
+        "Teams delivered too few features"],
+    a: 1,
+    why: "Teams skip diagnosis and arrive with a solution already decided — \"we need a CRM\", \"we need more AI\" — so they never identify what is actually preventing the outcome."
+  },
+  {
+    q: "What do Grab (taxis), Amazon (books) and Netflix (DVDs) illustrate?",
+    o: ["That first-mover advantage decides the market",
+        "That a bold full vision should be launched all at once",
+        "That each nailed one problem first, then scaled",
+        "That physical operations must precede digital ones"],
+    a: 2,
+    why: "None of them achieved their full vision immediately. Each solved a single problem well before expanding."
+  },
+  {
+    q: "The Five Whys is best described as a tool that…",
+    o: ["Moves you from symptom to root cause",
+        "Ranks features by expected value",
+        "Gathers five stakeholder perspectives on a decision",
+        "Confirms a solution is technically feasible"],
+    a: 0,
+    why: "Problems rarely have one root cause. The goal is to find causes that are within your team's control and linked to the outcome you want."
+  },
+  {
+    q: "What are the 4Cs of a clear problem statement?",
+    o: ["Customer, Cost, Channel, Capability",
+        "Context, Constraint, Choice, Commitment",
+        "Clarity, Consequence, Cause, Confirmation",
+        "Clarity, Coverage, Consistency, Compliance"],
+    a: 2,
+    why: "Clarity, Consequence, Cause and Confirmation turn a diagnosed root cause into a sharp, data-backed statement that keeps the team focused on the right problem."
+  },
+  {
+    q: "Which of these is a leading indicator rather than a lagging one?",
+    o: ["Annual reduction in total processing cost",
+        "Weekly sign-ups completing the new onboarding step",
+        "Year-end citizen satisfaction score",
+        "Total cases resolved over the past financial year"],
+    a: 1,
+    why: "Leading indicators give early signals during implementation so you can course-correct; lagging indicators measure the real outcome after the fact."
+  },
+  {
+    q: "The Value-Cost Ratio (VCR) measures…",
+    o: ["How much value is generated for every dollar spent",
+        "The ratio of features shipped to features planned",
+        "How closely a metric meets the SMART criteria",
+        "The gap between leading and lagging indicators"],
+    a: 0,
+    why: "VCR shows the return on resources deployed, which is how you make the case for continued investment."
+  },
+  {
+    q: "The health appointment booking system began as a FormSG form feeding an Excel sheet. Which risk was that cheaply testing, and why did it work?",
+    o: ["Team risk — it proved accountability was clear across policy, ops and tech",
+        "Technical risk — it proved the system could scale to national volume",
+        "Market risk — it put the product in front of real users early, even though it was deliberately unscalable",
+        "Market risk — it removed the need for an A/B test before scaling"],
+    a: 2,
+    why: "De-risking market risk means getting the product in front of real users as early as possible. The A/B test returned 0 bookings in control against 24 in treatment, with users sharing the link organically — product-market fit shown before scaling."
+  },
+  {
+    q: "What is the 11-Star Framework for?",
+    o: ["Scoring a service against eleven accessibility standards",
+        "Recalibrating ambition to find the sweet spot between adequate and impossible",
+        "Staging a rollout across eleven delivery milestones",
+        "Rating team maturity from proof of concept to maturity"],
+    a: 1,
+    why: "It stretches teams past the merely adequate — which matters most for compulsory services, where citizens do not have the option to go elsewhere."
+  }
+];
+
+const form = document.getElementById('quiz');
+const checkBtn = document.getElementById('check');
+const resetBtn = document.getElementById('reset');
+const scoreEl = document.getElementById('score');
+let checked = false;
+
+function render(){
+  form.innerHTML = QUESTIONS.map((item, i) => `
+    <div class="q" id="q${i}">
+      <div class="qn">Question ${i + 1}</div>
+      <p class="qt">${item.q}</p>
+      ${item.o.map((opt, j) => `
+        <label class="opt" data-j="${j}">
+          <input type="radio" name="q${i}" value="${j}">
+          <span>${opt}</span>
+        </label>`).join('')}
+      <div class="fb"></div>
+    </div>`).join('');
+}
+
+function answered(){
+  return QUESTIONS.filter((_, i) => form.querySelector(`input[name="q${i}"]:checked`)).length;
+}
+
+function updateProgress(){
+  if (checked) return;
+  const n = answered();
+  checkBtn.disabled = n < QUESTIONS.length;
+  scoreEl.innerHTML = n < QUESTIONS.length
+    ? `<em>${n} of ${QUESTIONS.length} answered.</em>`
+    : `<em>All answered — check your score.</em>`;
+}
+
+form.addEventListener('change', updateProgress);
+
+checkBtn.addEventListener('click', () => {
+  let score = 0;
+  QUESTIONS.forEach((item, i) => {
+    const picked = form.querySelector(`input[name="q${i}"]:checked`);
+    const pick = Number(picked.value);
+    const right = pick === item.a;
+    if (right) score++;
+
+    const block = document.getElementById('q' + i);
+    block.classList.add('done');
+    block.querySelectorAll('input').forEach(el => { el.disabled = true; });
+    block.querySelector(`.opt[data-j="${item.a}"]`).classList.add('correct');
+    if (!right) block.querySelector(`.opt[data-j="${pick}"]`).classList.add('chosen-wrong');
+
+    const fb = block.querySelector('.fb');
+    fb.className = 'fb ' + (right ? 'right' : 'wrong');
+    const head = right ? 'Correct' : 'Not quite — the answer is ' + String.fromCharCode(65 + item.a) + '.';
+    fb.innerHTML = `<b>${head}</b>${item.why}`;
+  });
+
+  checked = true;
+  checkBtn.disabled = true;
+  const verdict = score === QUESTIONS.length ? 'Full marks.'
+    : score >= 6 ? 'Solid.'
+    : 'Worth another pass over the summary.';
+  scoreEl.innerHTML = `You scored ${score} / ${QUESTIONS.length}. <em>${verdict}</em>`;
+  document.getElementById('q0').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+resetBtn.addEventListener('click', () => {
+  checked = false;
+  render();
+  updateProgress();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+render();
+updateProgress();
+</script>
+</body>
+</html>
